@@ -1,0 +1,73 @@
+\documentclass[oneside]{book}
+
+% CUSTOM SETTINGS
+\usepackage{preamble} % use custom settings, configurations, and packages defined in preamble.sty
+
+% THESIS DETAILS
+\title{Phd Thesis}
+\author{Your Name}
+\date{June 2026}
+
+% BODY OF DOCUMENT
+\begin{document}
+
+% Front matter (roman numerals)
+\frontmatter
+\pagenumbering{roman}
+
+\input{Front matter/title}
+\input{Front matter/declaration}
+\input{Front matter/acknowledgements}
+\input{Front matter/abstract}
+
+\tableofcontents
+
+% FIGURES - will automatically populate when you have figures
+\newpage
+\addcontentsline{toc}{chapter}{List of Figures}
+\listoffigures
+
+% TABLES - will automatically populate when you have tables
+\newpage
+\addcontentsline{toc}{chapter}{List of Tables}
+\listoftables
+
+% PUBLICATIONS
+\newpage
+\input{Front matter/publications}
+
+% Main matter (Arabic numerals)
+\mainmatter 
+\setlength{\parskip}{1em}     % space between paragraphs
+\setlength{\parindent}{0pt}   % remove indentation (optional)
+
+\cleardoublepage
+\pagenumbering{arabic}
+
+\large
+
+% THESIS CHAPTERS
+\input{Chapters/Chapter1_introduction}
+\input{Chapters/Chapter2_literature_review}
+\input{Chapters/Chapter3_research_design}
+\input{Chapters/Chapter4_study_1}
+\input{Chapters/Chapter5_study_2}
+\input{Chapters/Chapter6_study_3}
+\input{Chapters/Chapter7_general_discussion}
+\input{Chapters/Chapter8_concluding_thoughts}
+
+% APPENDICES
+\newpage
+\appendix
+\input{Back matter/appendix_a_example_appendix}
+
+\backmatter
+\setlength{\parskip}{0pt}     % reset paragraph spacing
+\setlength{\parindent}{1.5em} % restore indentation
+
+% BIBLIOGRAPHY 
+\addcontentsline{toc}{chapter}{Bibliography}
+\bibliographystyle{ACM-Reference-Format}
+\bibliography{references}
+
+\end{document}

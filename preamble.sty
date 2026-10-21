@@ -1,0 +1,133 @@
+\ProvidesPackage{preamble}
+
+% FILES AND IMAGES
+\usepackage{graphicx} % required for inserting images
+\usepackage{import} % required to import .tex files into main document
+\usepackage{subcaption} %
+\usepackage{tabularx}
+\usepackage{epigraph}
+\usepackage[acronym]{glossaries}
+\usepackage{transparent} % for transparent boxes
+
+% BIBLIOGRAPHY
+\usepackage[round,authoryear]{natbib}
+\setcitestyle{authoryear,round}
+\usepackage{xurl} % smart line breaks in DOI/URL
+\usepackage[colorlinks=true,linkcolor=black,citecolor=black,breaklinks=true]{hyperref}
+\providecommand{\bibinfo}[2]{#2}
+\providecommand{\bibfield}[2]{#2}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\showISBNx}[1]{ISBN~#1}
+\providecommand{\showISBNxiii}[1]{ISBN~#1}
+\providecommand{\showISSN}[1]{ISSN~#1}
+\providecommand{\showURL}[1]{#1}
+\providecommand{\showeprint}[2][]{arXiv:#2}
+
+% MARGINS
+\usepackage[a4paper,margin=3cm]{geometry} % required to customise the margins
+\geometry{a4paper, margin=2.5cm} % set margins - must be 2.5 cm for digital theses
+
+% HEADER
+\usepackage{fancyhdr} % required to customise headers and footers
+\pagestyle{fancy}
+\fancyhf{} % clear header
+\setlength{\headheight}{15pt} % set height of header
+\fancyfoot[C]{\thepage} % set foot page numbers
+\fancyhfoffset[L,R]{0pt} % Ensure that headers and footers respect the main text margins
+\renewcommand{\headrulewidth}{0pt} % Remove the header line (rule)
+\renewcommand{\footrulewidth}{0pt} % Remove the footer line (rule)
+
+% PAGE NUMBERING
+\pagenumbering{arabic}
+
+% PAGE ORIENTATION
+\usepackage{pdflscape}
+
+% SECTION NUMBERING
+\setcounter{secnumdepth}{3}
+
+% FONT
+% must be no smaller than 11 point for text, and 9 point for footnotes
+% Arial or other Sans-Serif font is recommended for a digital thesis
+\usepackage{newtxtext,newtxmath}
+%\usepackage{shadowtext}
+\usepackage[T1]{fontenc} % for Polish characters
+
+% SPACING
+% font spacing must be 1.5 or double spaced
+% single spacing is used only for indented quotations, footnotes or bibliographies
+\usepackage{setspace} % Load the setspace package
+\onehalfspacing % Set the line spacing to 1.5
+%\doublespacing % Set the line spacing to double spacing
+
+\usepackage{titlesec}
+% Reduce space after headings (e.g., after \section or \subsection)
+\titlespacing*{\section}{0pt}{10pt}{5pt}
+\titlespacing*{\subsection}{0pt}{8pt}{3pt}
+\titlespacing*{\subsubsection}{0pt}{8pt}{0pt}
+
+% INDEX
+\usepackage{makeidx} % required to create document index
+\makeindex
+
+% TABLES
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{float}
+\usepackage{colortbl}
+\usepackage{multirow}
+\usepackage{adjustbox}   % scales to width/height limits
+
+% BULLET POINTS
+\usepackage{enumitem}
+
+% CHAPTER STYLE
+\usepackage{xcolor}
+\definecolor{ACMDarkBlue}{cmyk}{1,0.58,0,0.21}
+\hypersetup{urlcolor=ACMDarkBlue}
+
+\newcommand{\chapnumfont}{%     % Define font for chapter number
+ \usefont{T1}{pnc}{b}{n}%      % Use New Chancery, bold, normal shape
+ \fontsize{75}{75}%            % Font size 75pt
+ \selectfont%                  % Activate font
+}
+
+% Chapter title format
+\usepackage[most]{tcolorbox}
+% Load transparency support
+\tcbuselibrary{skins, breakable}
+
+\titleformat{name=\chapter}[display]
+{\filleft\bfseries} % Align content to the right
+{\filleft\chapnumfont{\thechapter} \\ \titlerule} % Chapter number with a line below
+{-24pt} % Spacing between number and title
+{\huge} % Chapter title size
+
+% Numberless chapter (for things like Introduction, References, etc.)
+\titleformat{name=\chapter,numberless}[display]
+{\filright\bfseries} 
+{\filright} 
+{-24pt} 
+{\Huge}
+
+% Format of 4th level headings
+\titleformat{\subsubsection}
+  {\normalfont\large\bfseries\itshape}
+  {\thesubsubsection}
+  {1em}
+  {}
+
+\titlespacing*{\subsubsection}{0pt}{8pt}{0pt}
+
+% Format of 5th level headings
+\titleformat{\paragraph}
+  [runin]             % Run-in style (same line as paragraph text)
+  {\normalfont\bfseries} % Italic text, no bold
+  {}       % No numbering
+  {0pt}                 % Space between number and title
+  {}                    % Code before the title
+
+\titlespacing*{\paragraph}{0pt}{0pt}{1em}
+
+% BOXES
+\usepackage{tcolorbox}
